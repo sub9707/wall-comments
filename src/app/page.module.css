@@ -1,0 +1,12 @@
+.stage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: radial-gradient(
+    120% 100% at 50% 38%,
+    var(--color-pink-mist) 0%,
+    var(--color-pink-pale) 55%,
+    var(--color-pink-soft) 100%
+  );
+}

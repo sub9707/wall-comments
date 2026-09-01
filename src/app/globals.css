@@ -1,0 +1,56 @@
+@import "pretendard/dist/web/static/pretendard.css";
+@import "../styles/tokens.css";
+
+/* Gangwon Education handwriting font — used for bubble text (see BubbleDom.ts) */
+@font-face {
+  font-family: "Gangwon Hyunoksam";
+  src: url("/fonts/gangwon-hyunoksam.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--color-pink-ink);
+  background: var(--color-pink-white);
+  overflow: hidden;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Kiosk hardening: hide cursor, block callouts, prevent accidental zoom/select */
+body.kiosk-idle {
+  cursor: none;
+}
+
+input,
+textarea {
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+#__next,
+main {
+  height: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: var(--color-pink-soft);
+  color: var(--color-white);
+}

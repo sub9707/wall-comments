@@ -1,0 +1,25 @@
+.button {
+  font-family: var(--font-family);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 10px 18px;
+  background: color-mix(in srgb, var(--color-white) 55%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid color-mix(in srgb, var(--color-pink-soft) 55%, transparent);
+  border-radius: var(--radius-pill);
+  color: var(--color-pink-deep);
+  box-shadow: var(--shadow-card);
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-out-soft), transform var(--duration-fast) var(--ease-out-soft);
+}
+
+.button:hover {
+  background: color-mix(in srgb, var(--color-white) 75%, transparent);
+  transform: translateY(-1px);
+}
+
+.button:active {
+  transform: translateY(0);
+}

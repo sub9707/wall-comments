@@ -1,0 +1,56 @@
+/*
+ * CSS custom-property mirror of tokens.ts. Keep values in sync by hand —
+ * the palette is small and stable enough that a generator would be
+ * more ceremony than it's worth.
+ *
+ * Rebranded to yellow / white / black (Kyochon Chicken). `--color-pink-*`
+ * names are kept as-is rather than renamed across every component that
+ * references them — only the values changed.
+ */
+:root {
+  /* colors */
+  --color-pink-mist: #fffdf2;
+  --color-pink-pale: #fff6d9;
+  --color-pink-white: #ffffff;
+
+  --color-pink-soft: #ffdd66;
+  --color-pink-core: #ffc300;
+  --color-pink-strong: #e8a200;
+
+  --color-pink-deep: #4a3f1f;
+  --color-pink-ink: #171310;
+
+  --color-white: #ffffff;
+
+  /* typography */
+  --font-family: "Pretendard", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+  --space-xxl: 64px;
+
+  /* radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  /* shadow */
+  --shadow-soft: 0 8px 32px rgba(23, 19, 16, 0.14);
+  --shadow-card: 0 4px 20px rgba(23, 19, 16, 0.1);
+
+  /* glow */
+  --glow-bubble: rgba(255, 255, 255, 0.55);
+  --glow-ambient: rgba(255, 195, 0, 0.22);
+
+  /* animation */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out-soft: cubic-bezier(0.45, 0, 0.55, 1);
+  --duration-fast: 180ms;
+  --duration-base: 320ms;
+  --duration-slow: 600ms;
+}

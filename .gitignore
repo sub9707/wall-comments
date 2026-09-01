@@ -1,0 +1,33 @@
+# dependencies
+node_modules/
+
+# next.js
+.next/
+out/
+
+# production
+build/
+
+# data (kiosk local SQLite — never commit event data)
+data/*.db
+data/*.db-journal
+data/*.db-wal
+data/*.db-shm
+
+# backups
+backup/*.db
+
+# env
+.env
+.env.local
+.env*.local
+
+# logs
+*.log
+npm-debug.log*
+
+# misc
+.DS_Store
+*.pem
+.vercel
+next-env.d.ts

@@ -1,0 +1,94 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(560px, 86vw);
+  margin: var(--space-lg) auto 0;
+}
+
+.inputRow {
+  position: relative;
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  padding: 18px 64px 18px 24px;
+  font-family: var(--font-family);
+  font-size: 16px;
+  color: var(--color-pink-ink);
+  background: color-mix(in srgb, var(--color-pink-mist) 45%, transparent);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border: 1px solid color-mix(in srgb, var(--color-pink-soft) 55%, transparent);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft), inset 0 1px 0 color-mix(in srgb, white 60%, transparent);
+  outline: none;
+  transition: box-shadow var(--duration-base) var(--ease-out-soft),
+    border-color var(--duration-base) var(--ease-out-soft),
+    background var(--duration-base) var(--ease-out-soft);
+}
+
+.input::placeholder {
+  color: var(--color-pink-soft);
+}
+
+.input:focus {
+  background: color-mix(in srgb, var(--color-pink-mist) 60%, transparent);
+  border-color: var(--color-pink-core);
+  box-shadow: 0 8px 36px rgba(232, 95, 134, 0.22), inset 0 1px 0 color-mix(in srgb, white 70%, transparent);
+}
+
+.counter {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-pink-soft);
+  pointer-events: none;
+}
+
+.enterButton {
+  margin-top: var(--space-md);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 14px 40px;
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--color-white);
+  background: linear-gradient(135deg, var(--color-pink-core), var(--color-pink-strong));
+  border: none;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 6px 22px rgba(232, 95, 134, 0.35);
+  cursor: pointer;
+  transition: transform var(--duration-fast) var(--ease-out-soft), opacity var(--duration-fast);
+}
+
+.enterButton:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.enterButton:not(:disabled):hover {
+  transform: translateY(-1px);
+}
+
+.enterButton:not(:disabled):active {
+  transform: translateY(0);
+}
+
+.enterGlyph {
+  font-size: 15px;
+}
+
+.errorSlot {
+  height: 20px;
+  margin-top: var(--space-sm);
+  font-size: 12px;
+  color: var(--color-pink-deep);
+}

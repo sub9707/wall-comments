@@ -1,0 +1,40 @@
+.wrap {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  max-width: 200px;
+}
+
+.stepNumber {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid var(--color-pink-soft);
+  color: var(--color-pink-strong);
+  font-size: 10px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.stepLabel {
+  display: flex;
+  flex-direction: column;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--color-pink-deep);
+}
+
+.line {
+  white-space: nowrap;
+}
