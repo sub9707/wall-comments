@@ -23,7 +23,7 @@ export async function POST(request: Request): Promise<NextResponse<PostCommentRe
 
   const rawText = typeof body === "object" && body !== null ? (body as Record<string, unknown>).text : undefined;
 
-  const recentTexts = CommentRepository.findRecent(20)
+  const recentTexts = CommentRepository.findRecent(5)
     .filter((c) => Date.now() - Date.parse(c.createdAt) < PINK_DROP_CONFIG.duplicateWindowMs)
     .map((c) => c.text);
 

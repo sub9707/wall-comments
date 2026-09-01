@@ -89,7 +89,7 @@ export function createBubbleManager(pool: BubbleDomPoolInstance, ripple: RippleL
     slot.stageStartTime = elapsed;
     slot.spawnOrder = ++spawnOrderCounter;
 
-    slot.textEl.textContent = comment.text;
+    slot.textInnerEl.textContent = comment.text;
     slot.el.dataset.commentId = comment.id;
     slot.el.dataset.commentText = comment.text;
     slot.el.dataset.commentCreatedAt = comment.createdAt;
@@ -131,7 +131,7 @@ export function createBubbleManager(pool: BubbleDomPoolInstance, ripple: RippleL
       slot.stageStartTime = elapsed;
       slot.spawnOrder = ++spawnOrderCounter;
 
-      slot.textEl.textContent = comment.text;
+      slot.textInnerEl.textContent = comment.text;
       slot.el.dataset.commentId = comment.id;
       slot.el.dataset.commentText = comment.text;
       slot.el.dataset.commentCreatedAt = comment.createdAt;
@@ -247,7 +247,7 @@ export function createBubbleManager(pool: BubbleDomPoolInstance, ripple: RippleL
   function updateTextByCommentId(commentId: string, text: string, updatedAt: string) {
     const slot = pool.slots.find((s) => s.commentId === commentId && s.active);
     if (!slot) return;
-    slot.textEl.textContent = text;
+    slot.textInnerEl.textContent = text;
     slot.el.dataset.commentText = text;
     slot.el.dataset.commentUpdatedAt = updatedAt;
   }

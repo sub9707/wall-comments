@@ -6,6 +6,7 @@ export type BubbleStage = "idle" | "popping" | "traveling" | "active" | "exiting
 export type BubbleDomSlot = {
   el: HTMLDivElement;
   textEl: HTMLDivElement;
+  textInnerEl: HTMLSpanElement;
   active: boolean;
   commentId: string | null;
   stage: BubbleStage;
@@ -87,6 +88,10 @@ export function createBubbleDomPool(count: number): BubbleDomPoolInstance {
     });
     el.appendChild(img);
 
+    // Outer: pure positioning/centering. Inner: the actual text run,
+    // with -webkit-line-clamp for "too long -> ends in …" truncation —
+    // that needs `display: -webkit-box`, which can't coexist with the
+    // outer's `display: flex` centering on the same element.
     const textEl = document.createElement("div");
     Object.assign(textEl.style, {
       position: "absolute",
@@ -99,16 +104,36 @@ export function createBubbleDomPool(count: number): BubbleDomPoolInstance {
       alignItems: "center",
       justifyContent: "center",
       textAlign: "center",
+      overflow: "hidden", // safety net in case the inner line-clamp ever fails to bound itself
+    });
+
+    const textInnerEl = document.createElement("span");
+    Object.assign(textInnerEl.style, {
+      // A flex child's default min-width is `auto` (= its unwrapped
+      // content width), which lets text overflow sideways instead of
+      // wrapping — with no wrap, line-clamp never has multiple lines
+      // to clip, so the "…" never shows. width:100% + min-width:0
+      // forces it to actually wrap within textEl's box first.
+      width: "100%",
+      minWidth: "0",
+      overflow: "hidden",
+      textOverflow: "ellipsis",
       whiteSpace: "pre-line",
       wordBreak: "break-all",
       overflowWrap: "anywhere",
-      overflow: "hidden",
       fontFamily: "'Gangwon Hyunoksam', var(--font-family)",
       fontWeight: "500",
       fontSize: "44px", // reference size at MAX_DIAMETER — shrinks with the bubble via transform: scale()
       color: colors.pinkInk,
       lineHeight: "1.25",
     });
+    // setProperty with the raw CSS name sidesteps camelCase ambiguity
+    // for vendor-prefixed properties (some engines only recognize
+    // `webkitLineClamp`, others `WebkitLineClamp` as a JS property).
+    textInnerEl.style.setProperty("display", "-webkit-box");
+    textInnerEl.style.setProperty("-webkit-line-clamp", "3");
+    textInnerEl.style.setProperty("-webkit-box-orient", "vertical");
+    textEl.appendChild(textInnerEl);
     el.appendChild(textEl);
 
     container.appendChild(el);
@@ -116,6 +141,7 @@ export function createBubbleDomPool(count: number): BubbleDomPoolInstance {
     slots.push({
       el,
       textEl,
+      textInnerEl,
       active: false,
       commentId: null,
       stage: "idle",

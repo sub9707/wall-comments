@@ -56,7 +56,10 @@ export const PINK_DROP_CONFIG = {
     windowMs: 10_000,
     maxRequestsPerWindow: 3,
   },
-  duplicateWindowMs: 30_000,
+  // Relaxed on purpose: this only needs to catch an accidental
+  // double-submit (double Enter/click), not block two different
+  // visitors who happen to write the same short phrase ("맛있어요!").
+  duplicateWindowMs: 6_000,
 
   // Date rollover polling
   dateRolloverPollMs: 30_000,
