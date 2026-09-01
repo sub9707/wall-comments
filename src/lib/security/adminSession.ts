@@ -1,17 +1,17 @@
 import { randomBytes } from "node:crypto";
 
-export const ADMIN_SESSION_COOKIE = "biodance_admin_session";
+export const ADMIN_SESSION_COOKIE = "wall_comments_admin_session";
 const SESSION_TTL_MS = 12 * 60 * 60 * 1000; // 12h — matches an event day
 
 declare global {
-  var __biodanceAdminSessions: Map<string, number> | undefined; // token -> expiresAt
+  var __wallCommentsAdminSessions: Map<string, number> | undefined; // token -> expiresAt
 }
 
 function getSessions(): Map<string, number> {
-  if (!globalThis.__biodanceAdminSessions) {
-    globalThis.__biodanceAdminSessions = new Map();
+  if (!globalThis.__wallCommentsAdminSessions) {
+    globalThis.__wallCommentsAdminSessions = new Map();
   }
-  return globalThis.__biodanceAdminSessions;
+  return globalThis.__wallCommentsAdminSessions;
 }
 
 export function createAdminSession(): { token: string; expiresAt: number } {

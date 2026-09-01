@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { useWallStore } from "@/store/useWallStore";
 import { useSafeZoneObserver } from "@/hooks/useSafeZoneObserver";
-import { BiodanceLogo } from "./BiodanceLogo";
+import { MainLogo } from "./MainLogo";
 import { BeautyNoteTitle } from "./BeautyNoteTitle";
 import { CommentInput } from "./CommentInput";
 import { TodayCounter } from "./TodayCounter";
@@ -45,7 +45,7 @@ export function WallUI() {
         ref={safeZoneRef}
         className={`${styles.safeZone} ${inputFocused ? styles.focused : ""}`}
       >
-        <BiodanceLogo />
+        <MainLogo />
         <BeautyNoteTitle />
         <CommentInput />
       </div>

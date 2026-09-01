@@ -1,7 +1,7 @@
 "use client";
 
 import { PinkDropScene } from "@/components/pink-drop/PinkDropScene";
-import { WallUI } from "@/components/biodance/WallUI";
+import { WallUI } from "@/components/wall/WallUI";
 import { useTodayStats } from "@/hooks/useTodayStats";
 import { useKioskHardening } from "@/hooks/useKioskHardening";
 import styles from "./page.module.css";

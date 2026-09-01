@@ -20,7 +20,7 @@ Three.js/WebGL 없이 순수 HTML/CSS/DOM 애니메이션으로 구현했습니�
 npm install
 cp .env.example .env.local   # ADMIN_PASSWORD 값 설정
 npm run build
-npm run start                 # http://localhost:5900 (ecosystem.config.js 기준)
+npm run start                 # http://localhost:8443 (ecosystem.config.js 기준)
 ```
 
 `/admin`은 운영자 페이지입니다 (`ADMIN_PASSWORD`로 로그인, 메인 화면에는 링크 없음).
@@ -43,6 +43,6 @@ pm2 startup      # 재부팅 후 자동 실행 설정 (안내되는 명령어 �
 ## 프로젝트 구조
 
 - `src/app` — 페이지, API 라우트
-- `src/components/biodance` — 메인 화면 UI (로고, 입력창, 카운터, 각종 모달)
+- `src/components/wall` — 메인 화면 UI (로고, 입력창, 카운터, 각종 모달)
 - `src/components/pink-drop` — 버블 애니메이션/풀 관리 로직
 - `src/lib` — DB, 검증, 보안, 설정값(`config.ts`)

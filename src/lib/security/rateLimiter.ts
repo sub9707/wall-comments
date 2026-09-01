@@ -5,14 +5,14 @@ type Bucket = {
 };
 
 declare global {
-  var __biodanceRateLimitBuckets: Map<string, Bucket> | undefined;
+  var __wallCommentsRateLimitBuckets: Map<string, Bucket> | undefined;
 }
 
 function getBuckets(): Map<string, Bucket> {
-  if (!globalThis.__biodanceRateLimitBuckets) {
-    globalThis.__biodanceRateLimitBuckets = new Map();
+  if (!globalThis.__wallCommentsRateLimitBuckets) {
+    globalThis.__wallCommentsRateLimitBuckets = new Map();
   }
-  return globalThis.__biodanceRateLimitBuckets;
+  return globalThis.__wallCommentsRateLimitBuckets;
 }
 
 /**

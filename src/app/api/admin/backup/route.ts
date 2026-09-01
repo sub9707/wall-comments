@@ -16,7 +16,7 @@ export async function POST(): Promise<NextResponse> {
 
   const dateKey = getKstDateKey();
   const timestamp = Date.now();
-  const fileName = `biodance-${dateKey}-${timestamp}.db`;
+  const fileName = `wall-comments-${dateKey}-${timestamp}.db`;
   const filePath = path.join(BACKUP_DIR, fileName);
 
   try {

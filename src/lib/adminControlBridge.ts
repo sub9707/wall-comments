@@ -7,8 +7,8 @@
  * same machine.
  */
 
-const PAUSED_KEY = "biodance:wall-paused";
-const CLEAR_SIGNAL_KEY = "biodance:wall-clear-signal";
+const PAUSED_KEY = "wall-comments:paused";
+const CLEAR_SIGNAL_KEY = "wall-comments:clear-signal";
 
 export function setWallPaused(paused: boolean): void {
   try {

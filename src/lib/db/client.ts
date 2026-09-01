@@ -3,10 +3,10 @@ import path from "node:path";
 import fs from "node:fs";
 
 const DATA_DIR = path.join(process.cwd(), "data");
-const DB_PATH = path.join(DATA_DIR, "biodance.db");
+const DB_PATH = path.join(DATA_DIR, "wall-comments.db");
 
 declare global {
-  var __biodanceDb: Database.Database | undefined;
+  var __wallCommentsDb: Database.Database | undefined;
 }
 
 function createConnection(): Database.Database {
@@ -44,10 +44,10 @@ function createConnection(): Database.Database {
 // Reuse a single connection across Next.js dev hot-reloads / module reloads
 // so we never leak file handles on an app that runs for 8-12 hours straight.
 export function getDb(): Database.Database {
-  if (!globalThis.__biodanceDb) {
-    globalThis.__biodanceDb = createConnection();
+  if (!globalThis.__wallCommentsDb) {
+    globalThis.__wallCommentsDb = createConnection();
   }
-  return globalThis.__biodanceDb;
+  return globalThis.__wallCommentsDb;
 }
 
 export const DB_FILE_PATH = DB_PATH;

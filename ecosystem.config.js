@@ -1,13 +1,13 @@
 module.exports = {
   apps: [
     {
-      name: "biodance",
+      name: "wall-comments",
       script: "npm",
       args: "start",
       cwd: __dirname,
       env: {
         NODE_ENV: "production",
-        PORT: 5900,
+        PORT: 8443,
       },
       autorestart: true,
       max_restarts: 20,

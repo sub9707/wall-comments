@@ -6,14 +6,14 @@ export type RippleLayer = {
   dispose: () => void;
 };
 
-const KEYFRAMES_ID = "biodance-ripple-keyframes";
+const KEYFRAMES_ID = "wall-comments-ripple-keyframes";
 
 function ensureKeyframes(): void {
   if (document.getElementById(KEYFRAMES_ID)) return;
   const style = document.createElement("style");
   style.id = KEYFRAMES_ID;
   style.textContent = `
-    @keyframes biodance-ripple {
+    @keyframes wall-comments-ripple {
       from { transform: translate(-50%, -50%) scale(0); opacity: 0.55; }
       to   { transform: translate(-50%, -50%) scale(${PINK_DROP_CONFIG.rippleMaxScaleMultiplier}); opacity: 0; }
     }
@@ -53,7 +53,7 @@ export function createRippleLayer(): RippleLayer {
       border: `1.5px solid ${colors.pinkCore}`,
       boxShadow: `0 0 16px 2px ${colors.pinkSoft}`,
       transform: "translate(-50%, -50%) scale(0)",
-      animation: `biodance-ripple ${PINK_DROP_CONFIG.rippleDuration}ms ease-out forwards`,
+      animation: `wall-comments-ripple ${PINK_DROP_CONFIG.rippleDuration}ms ease-out forwards`,
     });
     ring.addEventListener("animationend", () => ring.remove(), { once: true });
     container.appendChild(ring);
