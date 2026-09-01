@@ -20,7 +20,7 @@ Three.js/WebGL 없이 순수 HTML/CSS/DOM 애니메이션으로 구현했습니�
 npm install
 cp .env.example .env.local   # ADMIN_PASSWORD 값 설정
 npm run build
-npm run start                 # http://localhost:6000 (ecosystem.config.js 기준)
+npm run start                 # http://localhost:8080 (ecosystem.config.js 기준)
 ```
 
 `/admin`은 운영자 페이지입니다 (`ADMIN_PASSWORD`로 로그인, 메인 화면에는 링크 없음).
